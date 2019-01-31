@@ -2,19 +2,23 @@ class Animal {
     constructor(age) {
         this.age = age;
     }
-    getAge() {
+    
+    get getAge() {
         return this.age;
     }
-    setAge(newAge) {
+    set setAge(newAge) {
         this.age = newAge;
     }
+    static printType() {
+        return "Animal";
+    }
 }
-
+console.log(Animal.printType());
 class Cow extends Animal {
     constructor(colors, age) {
         // colors[0] = 'yellow';
         super(age);
-        console.log(`Cow's age is ${super.getAge()}`);
+        console.log(`Cow's age is ${super.getAge}`);
         this.colors = colors;
     }
     printColors() {
