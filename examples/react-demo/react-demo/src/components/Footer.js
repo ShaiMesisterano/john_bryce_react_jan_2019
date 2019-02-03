@@ -4,7 +4,7 @@ import Copyrights from './Copyrights';
 const Footer = () => (
   <div>
     <h1>Footer</h1>
-    <Copyrights year="2048" company="John Bryce" />
+    <Copyrights year="2048abc" company="John Bryce" />
   </div>
 );
 

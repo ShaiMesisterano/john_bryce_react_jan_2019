@@ -13,6 +13,7 @@
 // export default Copyrights;
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Copyrights = ({ year, company }) => {
     let text = `${year} ${company}`;
@@ -20,5 +21,10 @@ const Copyrights = ({ year, company }) => {
     &copy; {text}
     </div>);
 }
+
+Copyrights.propTypes = {
+    year: PropTypes.number,
+    company: PropTypes.string
+  }
 
 export default Copyrights;
