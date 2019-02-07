@@ -1,26 +1,29 @@
 import React from 'react';
 import Menu from './Menu';
-import Deal from './Deal';
+import Deals from './Deals';
+import About from './pages/About';
+import Contact from './pages/Contact';
 
 class Main extends React.Component {
-    // constructor() {
-    //     this.state = {
-    //         timer: 60
-    //     }
-    // }
-    // constructor() {
-    //     super();
-    //     this.startCountDown();
-    // }
     state = {
-        timer: 60
+        page: 'Home'
     }
     render() {
         let { src, title } = this.props.mainImage;
+        // let content = null;
+        // if (this.state.page === 'Home') {
+        //     content = <Deals deals={this.props.deals} buyDeal={this.buyDeal.bind(this)} />
+        // }
+        // else if (this.state.page === 'About') {
+        //     content = <About />
+        // }
+        // else if (this.state.page === 'Contact') {
+        //     content = <Contact />
+        // }
         return (
             <div className="col-sm-12">
                 <div className="row">
-                    <Menu listOfItems={['Home', 'About', 'Contact']} />
+                    <Menu listOfItems={['Home', 'About', 'Contact']} navigate={this.navigate.bind(this)} />
                 </div>
 
                 <div className="row">
@@ -28,31 +31,28 @@ class Main extends React.Component {
                 </div>
 
                 <div className="row">
-                    {/* <h1>
-                        Time until this deal ends: {this.state.timer}
-                    </h1> */}
-                    {this.props.deals.map( (deal, key) => <Deal deal={deal} buyDeal={this.buyDeal.bind(this)} /> )}
+                    {( () => {
+                        switch (this.state.page) {
+                                case 'Home':
+                                    return <Deals deals={this.props.deals} buyDeal={this.buyDeal.bind(this)} />
+                                case 'About':
+                                    return <About />
+                                case 'Contact':
+                                    return <Contact />
+                        }
+                    })()}
                 </div>
             </div>
         )
     }
+    navigate(item) {
+        this.setState( {
+            page: item
+        } );
+    }
     buyDeal(dealId) {
         this.props.buyDeal(dealId);
     }
-    startCountDown = ( () => {
-        setInterval(() => {
-            if (this.state.timer > 0) {
-                // let updatedTimer = this.state.timer;
-                // updatedTimer = updatedTimer - 1;
-                // this.setState({
-                //     timer: updatedTimer
-                // });
-                this.setState( (prevState) => ({
-                    timer: prevState.timer - 1
-                }) );
-            }
-        }, 1000)
-    })();
 }
 
 export default Main;
