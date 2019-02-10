@@ -1,5 +1,5 @@
 import React from 'react';
-import App from './components/App';
+import App from '../../components/App';
 
 import { createStore, applyMiddleware } from 'redux';
 import thunc from 'redux-thunk';

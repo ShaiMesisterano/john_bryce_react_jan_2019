@@ -1,4 +1,4 @@
-export function getGists(gists) {
+function getGists(gists) {
     return {
         type: 'GET_GISTS',
         gists
