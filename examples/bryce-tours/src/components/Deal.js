@@ -25,6 +25,7 @@ class Deal extends React.Component {
         return (
             <div className="col-sm-3">
                 <h1>{to}</h1>
+                {this.props.children}
                 <h5>Ends in {this.state.timer} seconds</h5>
                 <img src={image} width="200" />
                 <button onClick={this.BuyDeal.bind(this, id)} className="btn btn-primary">Buy Now</button>

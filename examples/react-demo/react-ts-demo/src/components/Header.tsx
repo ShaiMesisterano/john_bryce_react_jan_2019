@@ -2,6 +2,6 @@ import * as React from 'react';
 
 export const Header: React.StatelessComponent<{}> = () => (
     <div>
-        Header
+        <h1 style={{ backgroundColor: 'red' }}>Header</h1>
     </div>
 );
